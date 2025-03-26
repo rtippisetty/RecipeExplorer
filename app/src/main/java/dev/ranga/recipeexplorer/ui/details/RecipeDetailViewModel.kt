@@ -24,6 +24,7 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+import kotlin.coroutines.cancellation.CancellationException
 
 @HiltViewModel
 class RecipeDetailViewModel @Inject constructor(
@@ -81,6 +82,7 @@ class RecipeDetailViewModel @Inject constructor(
                     }
                 }
             }.catch {
+                if (it is CancellationException) throw it
                 logger.e("RecipeDetailViewModel", "Error toggling favourite", it)
             }.collect { success ->
                 if (success) {
@@ -109,6 +111,7 @@ class RecipeDetailViewModel @Inject constructor(
     }
 
     private fun onFetchRecipeDetailError(error: Throwable) {
+        if(error is CancellationException) throw error
         _recipeDetailState.update { RecipeDetailState.Error(error.message) }
     }
 
