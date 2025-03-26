@@ -17,6 +17,7 @@ data class Dimensions(
     val xxxLarge: Dp = 128.dp,
     val xxxxLarge: Dp = 160.dp,
     val xxxxxLarge: Dp = 256.dp,
+    val dim200: Dp = 200.dp,
 
     val fontSizeTiny: TextUnit = 4.sp,
     val fontSizeSmall: TextUnit = 8.sp,

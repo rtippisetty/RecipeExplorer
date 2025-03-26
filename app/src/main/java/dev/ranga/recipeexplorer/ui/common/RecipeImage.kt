@@ -1,6 +1,7 @@
 package dev.ranga.recipeexplorer.ui.common
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -37,7 +38,7 @@ fun RecipeImage(
     Image(
         painter = painter,
         contentDescription = name,
-        modifier = modifier,
+        modifier = modifier.fillMaxSize(),
         contentScale = ContentScale.Crop
     )
 }

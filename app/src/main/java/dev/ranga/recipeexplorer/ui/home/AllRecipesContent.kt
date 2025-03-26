@@ -40,7 +40,7 @@ internal fun AllRecipesContent(
     ) {
         Heading(name = stringResource(id = R.string.all_recipes_title))
         Box(
-            modifier = Modifier.fillMaxSize(),
+            modifier = modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
         ) {
             if (allRecipes.isEmpty()) {
@@ -70,7 +70,7 @@ internal fun AllRecipesContent(
                 }
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
-                    contentPadding = PaddingValues(RecipeExplorerTheme.dimensions.small),
+                    contentPadding = PaddingValues(RecipeExplorerTheme.dimensions.extraSmall),
                     state = gridState,
                     modifier = Modifier.fillMaxSize()
                 ) {
@@ -82,7 +82,7 @@ internal fun AllRecipesContent(
                             recipe = recipe,
                             onRecipeClick = onRecipeClick,
                             modifier = Modifier
-                                .padding(RecipeExplorerTheme.dimensions.tiny)
+                                .padding(RecipeExplorerTheme.dimensions.extraSmall)
                                 .aspectRatio(1f)
                         )
                     }

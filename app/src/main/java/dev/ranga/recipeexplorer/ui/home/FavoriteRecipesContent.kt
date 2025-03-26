@@ -71,7 +71,7 @@ private fun FavoriteRecipes(
                         modifier = Modifier
                             .padding(RecipeExplorerTheme.dimensions.extraSmall)
                             .width(RecipeExplorerTheme.dimensions.xxxLarge)
-                            .height(RecipeExplorerTheme.dimensions.xxxxLarge)
+                            .height(RecipeExplorerTheme.dimensions.dim200)
                     )
                 }
             }
