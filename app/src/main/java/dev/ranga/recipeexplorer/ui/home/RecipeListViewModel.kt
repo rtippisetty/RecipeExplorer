@@ -79,8 +79,10 @@ class RecipeListViewModel @Inject constructor(
                 )
             } catch (error: Throwable) {
                 onError(error)
+            } finally {
+                _isLoading.value = false
+
             }
-            _isLoading.value = false
         }
     }
 

@@ -23,10 +23,10 @@ internal fun RecipeDto.toRecipe(): Recipe {
     val url = tryParseUrl(thumbnailUrl)
     return Recipe(
         id = id,
-        name = name,
-        description = description,
+        name = name ?: "",
+        description = description ?: "",
         thumbnailUrl = url,
-        totalTimeMinutes = totalTimeMinutes
+        totalTimeMinutes = totalTimeMinutes ?: 0
     )
 }
 

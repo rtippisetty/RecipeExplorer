@@ -8,27 +8,27 @@ import dev.ranga.recipeexplorer.data.mapper.toRecipe
 import dev.ranga.recipeexplorer.data.mapper.toRecipeDetails
 import dev.ranga.recipeexplorer.data.network.RecipeService
 import dev.ranga.recipeexplorer.domain.RecipeRepository
-import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.supervisorScope
 import javax.inject.Inject
+import kotlin.coroutines.cancellation.CancellationException
 
 class RecipeRepositoryImpl @Inject constructor(
     private val recipeService: RecipeService,
     private val favouriteRecipeDao: FavouriteRecipeDao,
 ) : RecipeRepository {
-    override suspend fun getAllRecipes(from: Int, size: Int): List<Recipe> = coroutineScope {
+    override suspend fun getAllRecipes(from: Int, size: Int): List<Recipe> = supervisorScope {
         val response = recipeService.getRecipes(from, size)
         response.results.map { recipeDto ->
             async {
                 try {
                     recipeDto.toRecipe()
-                } catch (_: IllegalStateException) {
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) {
                     null
                 }
             }
@@ -47,7 +47,9 @@ class RecipeRepositoryImpl @Inject constructor(
             recipeEntities.mapNotNull { favouriteRecipeEntity ->
                 try {
                     favouriteRecipeEntity.toRecipe()
-                } catch (_: IllegalStateException) {
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (_: Exception) {
                     null
                 }
             }

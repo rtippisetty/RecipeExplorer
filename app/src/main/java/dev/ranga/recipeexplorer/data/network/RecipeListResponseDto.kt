@@ -12,8 +12,8 @@ data class RecipeListResponseDto(
 @Serializable
 data class RecipeDto(
     val id: Int,
-    val name: String,
-    val description: String,
-    @SerialName("total_time_minutes") val totalTimeMinutes: Int = 0,
+    val name: String? = "",
+    val description: String? = "",
+    @SerialName("total_time_minutes") val totalTimeMinutes: Int? = 0,
     @SerialName("thumbnail_url") val thumbnailUrl: String,
 )

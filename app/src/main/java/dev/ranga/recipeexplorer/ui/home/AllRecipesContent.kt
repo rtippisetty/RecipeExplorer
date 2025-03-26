@@ -59,12 +59,12 @@ internal fun AllRecipesContent(
                     derivedStateOf {
                         val lastVisibleItemIndex =
                             gridState.layoutInfo.visibleItemsInfo.lastOrNull()?.index ?: 0
-                        lastVisibleItemIndex >= allRecipes.size - 4 // Threshold to load more data
+                        lastVisibleItemIndex >= allRecipes.size - 6 // Threshold to load more data
                     }
                 }
 
-                LaunchedEffect(isNearEnd, allRecipes.size) {
-                    if (isNearEnd) {
+                LaunchedEffect(isNearEnd, allRecipes.size, isLoading) {
+                    if (isNearEnd && !isLoading) {
                         loadMoreRecipes()
                     }
                 }
