@@ -16,24 +16,19 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import dev.ranga.recipeexplorer.R
 import dev.ranga.recipeexplorer.api.model.Recipe
+import dev.ranga.recipeexplorer.ui.common.Heading
 import dev.ranga.recipeexplorer.ui.common.ProgressIndicator
 import dev.ranga.recipeexplorer.ui.theme.RecipeExplorerTheme
-import kotlinx.coroutines.launch
 
 @Composable
-fun AllRecipesContent(
+internal fun AllRecipesContent(
     allRecipes: List<Recipe>,
     isLoading: Boolean,
     loadMoreRecipes: () -> Unit,
@@ -43,12 +38,7 @@ fun AllRecipesContent(
     Column(
         modifier = modifier
     ) {
-        Text(
-            text = stringResource(id = R.string.all_recipes_title),
-            fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
-            fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(RecipeExplorerTheme.dimensions.medium)
-        )
+        Heading(name = stringResource(id = R.string.all_recipes_title))
         Box(
             modifier = Modifier.fillMaxSize(),
             contentAlignment = Alignment.Center
