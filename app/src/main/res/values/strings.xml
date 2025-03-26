@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RecipeExplorer</string>
+    <string name="home_title">Explore Recipes</string>
+    <string name="all_recipes_title">All Recipes</string>
+    <string name="favourite_recipes_title">My Favourites</string>
+    <string name="instruction_title">Instructions</string>
+    <string name="back">Back</string>
+    <string name="error_title">Unable to fetch details</string>
+    <string name="favourite_recipes_empty">Your favourites space</string>
+    <string name="all_recipes_empty">No recipes</string>
+</resources>
