@@ -1,6 +1,8 @@
 package dev.ranga.recipeexplorer.ui.details
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -17,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -27,6 +30,7 @@ import dev.ranga.recipeexplorer.api.model.RecipeDetail
 import dev.ranga.recipeexplorer.ui.common.ProgressIndicator
 import dev.ranga.recipeexplorer.ui.common.RecipeImage
 import dev.ranga.recipeexplorer.ui.common.TopAppBar
+import dev.ranga.recipeexplorer.ui.common.toPercent
 import dev.ranga.recipeexplorer.ui.theme.RecipeExplorerTheme
 
 @Composable
@@ -93,16 +97,30 @@ private fun SuccessContent(
             .padding(RecipeExplorerTheme.dimensions.small)
     ) {
         item {
-            Text(
-                text = recipeDetails.name,
-                maxLines = 2,
-                overflow = TextOverflow.Ellipsis,
-                fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
-                fontWeight = FontWeight.Bold,
+            Row(
                 modifier = Modifier
-                    .padding(top = RecipeExplorerTheme.dimensions.small)
-                    .wrapContentSize()
-            )
+                    .fillMaxWidth(),
+                horizontalArrangement = Arrangement.Absolute.SpaceBetween
+            ) {
+                Text(
+                    text = recipeDetails.name,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                    fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(top = RecipeExplorerTheme.dimensions.small)
+                        .wrapContentSize(Alignment.CenterStart)
+                )
+                Text(
+                    text = "Rating: " + recipeDetails.userRatings.score.toPercent(),
+                    fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier
+                        .padding(top = RecipeExplorerTheme.dimensions.small)
+                        .wrapContentSize(Alignment.CenterEnd)
+                )
+            }
         }
         item {
             Text(
@@ -126,12 +144,21 @@ private fun SuccessContent(
             )
         }
         item {
-            Text(
-                text = stringResource(R.string.instruction_title),
-                fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
-                fontWeight = FontWeight.Bold,
-                modifier = Modifier.padding(top = RecipeExplorerTheme.dimensions.small)
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Absolute.SpaceBetween
+            ) {
+                Text(
+                    text = stringResource(R.string.instruction_title),
+                    fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
+                    fontWeight = FontWeight.Bold,
+                    modifier = Modifier.padding(top = RecipeExplorerTheme.dimensions.small)
+                )
+                Text(
+                    text = "" + recipeDetails.totalTimeMinutes + " mins",
+                    fontSize = RecipeExplorerTheme.dimensions.fontSizeXLarge,
+                )
+            }
         }
         items(
             recipeDetails.instructions.size,
