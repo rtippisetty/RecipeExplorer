@@ -5,5 +5,6 @@ data class Recipe(
     val name: String,
     val description: String,
     val thumbnailUrl: String,
-    val totalTimeMinutes: Int
+    val totalTimeMinutes: Int,
+    val userRatings: UserRatings,
 )

@@ -11,4 +11,5 @@ data class FavouriteRecipeEntity(
     val description: String,
     val thumbnailUrl: String,
     val totalTimeMinutes: Int,
+    val userRatings: Double,
 )

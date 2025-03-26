@@ -111,6 +111,7 @@ private fun SuccessContent(
                     modifier = Modifier
                         .padding(top = RecipeExplorerTheme.dimensions.small)
                         .wrapContentSize(Alignment.CenterStart)
+                        .weight(1f)
                 )
                 Text(
                     text = "Rating: " + recipeDetails.userRatings.score.toPercent(),

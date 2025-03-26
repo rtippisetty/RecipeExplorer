@@ -16,7 +16,8 @@ internal fun Recipe.toFavouriteRecipeEntity(): FavouriteRecipeEntity = Favourite
     name = name,
     description = description,
     thumbnailUrl = thumbnailUrl,
-    totalTimeMinutes = totalTimeMinutes
+    totalTimeMinutes = totalTimeMinutes,
+    userRatings = userRatings.score
 )
 
 internal fun RecipeDto.toRecipe(): Recipe {
@@ -26,7 +27,8 @@ internal fun RecipeDto.toRecipe(): Recipe {
         name = name ?: "",
         description = description ?: "",
         thumbnailUrl = url,
-        totalTimeMinutes = totalTimeMinutes ?: 0
+        totalTimeMinutes = totalTimeMinutes ?: 0,
+        userRatings = userRatings?.toUserRatings() ?: UserRatings(0.0)
     )
 }
 
@@ -37,7 +39,8 @@ internal fun FavouriteRecipeEntity.toRecipe(): Recipe {
         name = name,
         description = description,
         thumbnailUrl = url,
-        totalTimeMinutes = totalTimeMinutes
+        totalTimeMinutes = totalTimeMinutes,
+        userRatings = UserRatings(userRatings)
     )
 }
 

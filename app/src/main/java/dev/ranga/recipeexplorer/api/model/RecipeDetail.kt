@@ -26,5 +26,6 @@ fun RecipeDetail.toRecipe() = Recipe(
     name = name,
     description = description,
     thumbnailUrl = thumbnailUrl,
-    totalTimeMinutes = totalTimeMinutes
+    totalTimeMinutes = totalTimeMinutes,
+    userRatings = userRatings
 )

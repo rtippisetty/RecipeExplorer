@@ -23,6 +23,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import dev.ranga.recipeexplorer.R
 import dev.ranga.recipeexplorer.api.model.Recipe
+import dev.ranga.recipeexplorer.api.model.UserRatings
 import dev.ranga.recipeexplorer.ui.common.Heading
 import dev.ranga.recipeexplorer.ui.common.ProgressIndicator
 import dev.ranga.recipeexplorer.ui.theme.RecipeExplorerTheme
@@ -109,6 +110,9 @@ fun AllRecipesPreview() {
                     description = "Pizza description",
                     thumbnailUrl = "https://www.themealdb.com/images/media/meals/1548772327.jpg",
                     totalTimeMinutes = 30,
+                    userRatings = UserRatings(
+                        score = 0.91
+                    )
                 ),
                 Recipe(
                     id = 2,
@@ -116,6 +120,9 @@ fun AllRecipesPreview() {
                     description = "Pizza description",
                     thumbnailUrl = "https://www.themealdb.com/images/media/meals/1548772327.jpg",
                     totalTimeMinutes = 45,
+                    userRatings = UserRatings(
+                        score = 0.91
+                    )
                 ),
             ),
             isLoading = false,

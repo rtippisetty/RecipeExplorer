@@ -1,6 +1,7 @@
 package dev.ranga.recipeexplorer.testFixures
 
 import dev.ranga.recipeexplorer.api.model.Recipe
+import dev.ranga.recipeexplorer.api.model.UserRatings
 import dev.ranga.recipeexplorer.data.local.FavouriteRecipeEntity
 import dev.ranga.recipeexplorer.data.mapper.toRecipe
 import dev.ranga.recipeexplorer.data.mapper.toRecipeDetails
@@ -68,7 +69,8 @@ object RecipeTestFixtures {
             name = "Recipe $id",
             description = "Recipe $id description",
             totalTimeMinutes = id * 10,
-            thumbnailUrl = URL
+            thumbnailUrl = URL,
+            userRatings = 0.91
         )
     }
 
@@ -77,7 +79,8 @@ object RecipeTestFixtures {
         name = "Recipe $id",
         description = "Recipe $id description",
         totalTimeMinutes = id * 10,
-        thumbnailUrl = URL
+        thumbnailUrl = URL,
+        userRatings = UserRatings(0.89)
     )
 
     fun recipeList(
