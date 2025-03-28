@@ -5,8 +5,6 @@ data class RecipeDetail(
     val name: String,
     val description: String,
     val thumbnailUrl: String,
-    val cookTimeMinutes: Int,
-    val prepTimeMinutes: Int,
     val totalTimeMinutes: Int,
     val instructions: List<Instruction>,
     val userRatings: UserRatings
@@ -24,7 +22,6 @@ data class UserRatings(
 fun RecipeDetail.toRecipe() = Recipe(
     id = id,
     name = name,
-    description = description,
     thumbnailUrl = thumbnailUrl,
     totalTimeMinutes = totalTimeMinutes,
     userRatings = userRatings

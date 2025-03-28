@@ -8,7 +8,6 @@ const val FAVOURITE_RECIPE_TABLE_NAME = "favourite_recipe_table"
 data class FavouriteRecipeEntity(
     val id: Int,
     val name: String,
-    val description: String,
     val thumbnailUrl: String,
     val totalTimeMinutes: Int,
     val userRatings: Double,

@@ -14,7 +14,6 @@ import java.net.URL
 internal fun Recipe.toFavouriteRecipeEntity(): FavouriteRecipeEntity = FavouriteRecipeEntity(
     id = id,
     name = name,
-    description = description,
     thumbnailUrl = thumbnailUrl,
     totalTimeMinutes = totalTimeMinutes,
     userRatings = userRatings.score
@@ -25,7 +24,6 @@ internal fun RecipeDto.toRecipe(): Recipe {
     return Recipe(
         id = id,
         name = name ?: "",
-        description = description ?: "",
         thumbnailUrl = url,
         totalTimeMinutes = totalTimeMinutes ?: 0,
         userRatings = userRatings?.toUserRatings() ?: UserRatings(0.0)
@@ -37,7 +35,6 @@ internal fun FavouriteRecipeEntity.toRecipe(): Recipe {
     return Recipe(
         id = id,
         name = name,
-        description = description,
         thumbnailUrl = url,
         totalTimeMinutes = totalTimeMinutes,
         userRatings = UserRatings(userRatings)
@@ -52,8 +49,6 @@ internal fun RecipeMoreInfoDto.toRecipeDetails(): RecipeDetail {
         description = description,
         thumbnailUrl = url,
         totalTimeMinutes = totalTimeMinutes,
-        cookTimeMinutes = cookTimeMinutes,
-        prepTimeMinutes = prepTimeMinutes,
         instructions = instructions.map {
             it.toInstruction()
         },

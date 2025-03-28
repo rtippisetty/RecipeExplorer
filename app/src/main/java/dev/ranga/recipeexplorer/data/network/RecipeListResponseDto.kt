@@ -13,7 +13,6 @@ data class RecipeListResponseDto(
 data class RecipeDto(
     val id: Int,
     val name: String? = "",
-    val description: String? = "",
     @SerialName("total_time_minutes") val totalTimeMinutes: Int? = 0,
     @SerialName("thumbnail_url") val thumbnailUrl: String,
     @SerialName("user_ratings") val userRatings: UserRatingsDto? = null,

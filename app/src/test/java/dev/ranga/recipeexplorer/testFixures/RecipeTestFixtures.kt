@@ -29,7 +29,6 @@ object RecipeTestFixtures {
         RecipeDto(
             id = id,
             name = "Recipe $id",
-            description = "Recipe $id description",
             totalTimeMinutes = id * 10,
             thumbnailUrl = URL
         )
@@ -52,8 +51,6 @@ object RecipeTestFixtures {
             )
         ),
         thumbnailUrl = URL,
-        cookTimeMinutes = 10,
-        prepTimeMinutes = 5,
         totalTimeMinutes = 15,
         userRatings = UserRatingsDto(
             score = 4.5
@@ -67,7 +64,6 @@ object RecipeTestFixtures {
         FavouriteRecipeEntity(
             id = id,
             name = "Recipe $id",
-            description = "Recipe $id description",
             totalTimeMinutes = id * 10,
             thumbnailUrl = URL,
             userRatings = 0.91
@@ -77,7 +73,6 @@ object RecipeTestFixtures {
     fun recipe(id: Int) = Recipe(
         id = id,
         name = "Recipe $id",
-        description = "Recipe $id description",
         totalTimeMinutes = id * 10,
         thumbnailUrl = URL,
         userRatings = UserRatings(0.89)

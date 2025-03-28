@@ -107,7 +107,6 @@ fun AllRecipesPreview() {
                 Recipe(
                     id = 1,
                     name = "Chicken Salad",
-                    description = "Pizza description",
                     thumbnailUrl = "https://www.themealdb.com/images/media/meals/1548772327.jpg",
                     totalTimeMinutes = 30,
                     userRatings = UserRatings(
@@ -117,7 +116,6 @@ fun AllRecipesPreview() {
                 Recipe(
                     id = 2,
                     name = "Pizza with Pasta More and More we have to see what happens",
-                    description = "Pizza description",
                     thumbnailUrl = "https://www.themealdb.com/images/media/meals/1548772327.jpg",
                     totalTimeMinutes = 45,
                     userRatings = UserRatings(

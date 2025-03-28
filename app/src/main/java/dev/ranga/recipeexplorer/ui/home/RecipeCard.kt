@@ -89,7 +89,6 @@ fun RecipeCardPreview() {
         recipe = Recipe(
             id = 1,
             name = "Chicken Salad and pasta made of this chicken salad and pasta made of this chicken salad and pasta made of this chicken salad and pasta made of this chicken salad and pasta made of this",
-            description = "Pizza description",
             thumbnailUrl = "https://www.themealdb.com/images/media/meals/1548772327.jpg",
             totalTimeMinutes = 30,
             userRatings = UserRatings(

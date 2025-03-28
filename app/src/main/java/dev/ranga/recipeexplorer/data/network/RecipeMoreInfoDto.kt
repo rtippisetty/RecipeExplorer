@@ -10,8 +10,6 @@ data class RecipeMoreInfoDto(
     val description: String,
     val instructions: List<InstructionDto>,
     @SerialName("thumbnail_url") val thumbnailUrl: String,
-    @SerialName("cook_time_minutes") val cookTimeMinutes: Int = 0,
-    @SerialName("prep_time_minutes") val prepTimeMinutes: Int = 0,
     @SerialName("total_time_minutes") val totalTimeMinutes: Int = 0,
     @SerialName("user_ratings") val userRatings: UserRatingsDto,
 )
