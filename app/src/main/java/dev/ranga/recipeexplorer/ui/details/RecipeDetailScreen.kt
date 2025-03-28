@@ -124,15 +124,17 @@ private fun SuccessContent(
             }
         }
         item {
-            Text(
-                text = recipeDetails.description,
-                overflow = TextOverflow.Ellipsis,
-                fontSize = RecipeExplorerTheme.dimensions.fontSizeLarge,
-                fontWeight = FontWeight.Light,
-                modifier = Modifier
-                    .padding(top = RecipeExplorerTheme.dimensions.small)
-                    .wrapContentSize()
-            )
+            if(recipeDetails.description.isNotEmpty()) {
+                Text(
+                    text = recipeDetails.description,
+                    overflow = TextOverflow.Ellipsis,
+                    fontSize = RecipeExplorerTheme.dimensions.fontSizeLarge,
+                    fontWeight = FontWeight.Light,
+                    modifier = Modifier
+                        .padding(top = RecipeExplorerTheme.dimensions.small)
+                        .wrapContentSize()
+                )
+            }
         }
         item {
             RecipeImage(
@@ -146,7 +148,9 @@ private fun SuccessContent(
         }
         item {
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = RecipeExplorerTheme.dimensions.small),
                 horizontalArrangement = Arrangement.Absolute.SpaceBetween
             ) {
                 Text(
@@ -165,7 +169,7 @@ private fun SuccessContent(
             recipeDetails.instructions.size,
         ) { index ->
             Text(
-                text = "" + (index + 1) + ". " + recipeDetails.instructions[index].displayText,
+                text = "" + recipeDetails.instructions[index].stepNumber + ". " + recipeDetails.instructions[index].displayText,
                 fontSize = RecipeExplorerTheme.dimensions.fontSizeLarge,
                 fontWeight = FontWeight.Light,
                 modifier = Modifier

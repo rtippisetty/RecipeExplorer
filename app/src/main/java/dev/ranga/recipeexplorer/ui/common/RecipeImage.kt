@@ -8,10 +8,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import coil.compose.rememberAsyncImagePainter
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import dev.ranga.recipeexplorer.R
+import dev.ranga.recipeexplorer.ui.theme.RecipeExplorerTheme
 
 @Composable
 fun RecipeImage(
@@ -34,11 +36,22 @@ fun RecipeImage(
                 .build(),
         )
     }
-
     Image(
         painter = painter,
         contentDescription = name,
         modifier = modifier.fillMaxSize(),
-        contentScale = ContentScale.Crop
+        contentScale = ContentScale.Crop,
     )
+}
+
+@Preview
+@Composable
+fun RecipeImagePreview() {
+    RecipeExplorerTheme {
+        RecipeImage(
+            imageUrl = "https://www.themealdb.com/images/media/meals/1548772327.jpg",
+            name = "Test image",
+            modifier = Modifier.fillMaxSize()
+        )
+    }
 }

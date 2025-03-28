@@ -4,7 +4,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -36,7 +35,7 @@ fun RecipeCard(
     Card(
         modifier = modifier
             .clickable { onRecipeClick(recipe.id) },
-        elevation = CardDefaults.cardElevation(RecipeExplorerTheme.dimensions.extraSmall)
+        elevation = CardDefaults.cardElevation(RecipeExplorerTheme.dimensions.extraSmall),
     ) {
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -45,10 +44,14 @@ fun RecipeCard(
                 recipe.thumbnailUrl,
                 recipe.name,
                 modifier = Modifier
-                    .fillMaxHeight(fraction = 0.7f)
+                    .weight(7f)
+                    .fillMaxWidth()
             )
             Row(
-                modifier = Modifier.fillMaxWidth(),
+                modifier = Modifier
+                    .padding(top = RecipeExplorerTheme.dimensions.tiny)
+                    .fillMaxWidth()
+                    .weight(1f),
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
@@ -76,7 +79,7 @@ fun RecipeCard(
                 modifier = Modifier
                     .padding(RecipeExplorerTheme.dimensions.tiny)
                     .wrapContentSize()
-                    .weight(1f)
+                    .weight(2f)
             )
         }
     }
