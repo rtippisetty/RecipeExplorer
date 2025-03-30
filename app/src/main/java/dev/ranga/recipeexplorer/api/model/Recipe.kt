@@ -1,9 +1,9 @@
 package dev.ranga.recipeexplorer.api.model
 
 data class Recipe(
-    val id: Int,
+    val id: Long,
     val name: String,
     val thumbnailUrl: String,
-    val totalTimeMinutes: Int,
+    val totalTimeMinutes: Long,
     val userRatings: UserRatings,
 )

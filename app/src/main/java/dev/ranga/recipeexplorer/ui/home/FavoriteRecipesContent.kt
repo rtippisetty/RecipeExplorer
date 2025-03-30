@@ -21,7 +21,7 @@ import dev.ranga.recipeexplorer.ui.theme.RecipeExplorerTheme
 @Composable
 internal fun FavoriteRecipesContent(
     favouriteRecipes: RecipesState,
-    onRecipeClick: (recipeId: Int) -> Unit,
+    onRecipeClick: (recipeId: Long) -> Unit,
     modifier: Modifier = Modifier
 ) {
     when (favouriteRecipes) {
@@ -44,7 +44,7 @@ internal fun FavoriteRecipesContent(
 @Composable
 private fun FavoriteRecipes(
     favouriteRecipes: List<Recipe>,
-    onRecipeClick: (recipeId: Int) -> Unit,
+    onRecipeClick: (recipeId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(modifier = modifier) {

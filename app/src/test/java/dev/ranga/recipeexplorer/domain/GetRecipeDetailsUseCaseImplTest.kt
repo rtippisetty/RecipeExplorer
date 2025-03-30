@@ -36,9 +36,9 @@ internal class GetRecipeDetailsUseCaseImplTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = [-1, 0])
+    @ValueSource(longs = [-1, 0])
     fun `invalid Id handling negative ID`(
-        id: Int
+        id: Long
     ) = runTest {
         coEvery { recipeRepository.getRecipeDetail(id) } throws IllegalArgumentException()
 

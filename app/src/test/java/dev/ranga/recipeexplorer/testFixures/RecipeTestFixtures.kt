@@ -15,7 +15,7 @@ object RecipeTestFixtures {
     private const val URL ="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png"
 
     fun recipeListResponseDto(
-        count: Int = 0,
+        count: Long = 0,
         results: List<RecipeDto> = recipeDtoList(count)
     ) = RecipeListResponseDto(
         count = count,
@@ -23,18 +23,18 @@ object RecipeTestFixtures {
     )
 
     fun recipeDtoList(
-        count: Int = 1,
-    ) = List(count) { index ->
-        val id = index + 1
+        count: Long = 1,
+    ) = List(count.toInt()) { index ->
+        val id = index + 1L
         RecipeDto(
             id = id,
             name = "Recipe $id",
-            totalTimeMinutes = id * 10,
+            totalTimeMinutes = id * 10L,
             thumbnailUrl = URL
         )
     }
 
-    fun recipeDetailResponseDto(id: Int) = RecipeMoreInfoDto(
+    fun recipeDetailResponseDto(id: Long) = RecipeMoreInfoDto(
         id = id,
         name = "Recipe $id",
         description = "Recipe $id description",
@@ -60,7 +60,7 @@ object RecipeTestFixtures {
     fun favouriteRecipeEntities(
         count: Int = 1,
     ): List<FavouriteRecipeEntity> = List(count) { index ->
-        val id = index + 1
+        val id = index + 1L
         FavouriteRecipeEntity(
             id = id,
             name = "Recipe $id",
@@ -70,7 +70,7 @@ object RecipeTestFixtures {
         )
     }
 
-    fun recipe(id: Int) = Recipe(
+    fun recipe(id: Long) = Recipe(
         id = id,
         name = "Recipe $id",
         totalTimeMinutes = id * 10,
@@ -79,10 +79,10 @@ object RecipeTestFixtures {
     )
 
     fun recipeList(
-        count: Int = 1,
+        count: Long = 1,
         recipeDtoList: List<RecipeDto> = recipeDtoList(count)
     ) = recipeDtoList.map {
         it.toRecipe()
     }
-    fun recipeDetail(id: Int) = recipeDetailResponseDto(id).toRecipeDetails()
+    fun recipeDetail(id: Long) = recipeDetailResponseDto(id).toRecipeDetails()
 }

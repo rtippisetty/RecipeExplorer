@@ -35,7 +35,7 @@ class RecipeRepositoryImpl @Inject constructor(
         }.awaitAll().filterNotNull()
     }
 
-    override suspend fun getRecipeDetail(recipeId: Int): RecipeDetail {
+    override suspend fun getRecipeDetail(recipeId: Long): RecipeDetail {
         require(recipeId > 0) { "Invalid recipe ID" }
 
         return recipeService.getRecipeDetails(recipeId).toRecipeDetails()

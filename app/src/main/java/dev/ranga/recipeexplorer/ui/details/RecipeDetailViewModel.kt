@@ -35,7 +35,7 @@ class RecipeDetailViewModel @Inject constructor(
     private val removeFromFavouriteRecipesUseCase: RemoveFromFavouriteRecipesUseCase,
     private val logger: Logger,
 ) : ViewModel() {
-    private val recipeId: Int = savedStateHandle["recipeId"] ?: 0
+    private val recipeId: Long = savedStateHandle["recipeId"] ?: 0
 
     private val favouriteToggleEvents = MutableSharedFlow<Unit>()
 
@@ -56,7 +56,7 @@ class RecipeDetailViewModel @Inject constructor(
         )
 
     init {
-        if (recipeId != 0) {
+        if (recipeId != 0L) {
             loadRecipeDetails(recipeId)
         }
         observeFavouriteToggleEvents()
@@ -100,7 +100,7 @@ class RecipeDetailViewModel @Inject constructor(
         }
     }
 
-    private fun loadRecipeDetails(recipeId: Int) {
+    private fun loadRecipeDetails(recipeId: Long) {
         viewModelScope.launch {
             try {
                 onFetchRecipeDetailsSuccess(getRecipeDetailsUseCase.details(recipeId))

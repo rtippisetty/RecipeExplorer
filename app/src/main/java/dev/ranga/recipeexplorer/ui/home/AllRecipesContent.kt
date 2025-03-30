@@ -33,7 +33,7 @@ internal fun AllRecipesContent(
     allRecipes: List<Recipe>,
     isLoading: Boolean,
     loadMoreRecipes: () -> Unit,
-    onRecipeClick: (recipeId: Int) -> Unit,
+    onRecipeClick: (recipeId: Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(

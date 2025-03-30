@@ -28,7 +28,7 @@ import dev.ranga.recipeexplorer.ui.theme.RecipeExplorerTheme
 @Composable
 fun RecipeCard(
     recipe: Recipe,
-    onRecipeClick: (recipeId: Int) -> Unit,
+    onRecipeClick: (recipeId: Long) -> Unit,
     modifier: Modifier = Modifier,
 
     ) {

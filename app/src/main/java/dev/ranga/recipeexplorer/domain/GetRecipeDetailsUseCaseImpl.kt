@@ -7,6 +7,6 @@ import javax.inject.Inject
 class GetRecipeDetailsUseCaseImpl @Inject constructor(
     private val recipeRepository: RecipeRepository
 ) : GetRecipeDetailsUseCase {
-    override suspend fun details(id: Int): RecipeDetail =
+    override suspend fun details(id: Long): RecipeDetail =
         recipeRepository.getRecipeDetail(id)
 }

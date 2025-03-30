@@ -15,8 +15,8 @@ interface FavouriteRecipeDao {
     suspend fun insertRecipe(recipe: FavouriteRecipeEntity): Long
 
     @Query("DELETE FROM $FAVOURITE_RECIPE_TABLE_NAME WHERE id = :recipeId")
-    suspend fun deleteRecipe(recipeId: Int): Int
+    suspend fun deleteRecipe(recipeId: Long): Int
 
     @Query("SELECT * FROM $FAVOURITE_RECIPE_TABLE_NAME WHERE id = :recipeId")
-    suspend fun getRecipe(recipeId: Int): FavouriteRecipeEntity?
+    suspend fun getRecipe(recipeId: Long): FavouriteRecipeEntity?
 }

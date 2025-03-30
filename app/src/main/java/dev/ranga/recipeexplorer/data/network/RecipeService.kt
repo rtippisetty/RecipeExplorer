@@ -12,7 +12,7 @@ interface RecipeService {
 
     @GET("recipes/get-more-info")
     suspend fun getRecipeDetails(
-        @Query("id") id: Int
+        @Query("id") id: Long
     ): RecipeMoreInfoDto
 
     companion object {

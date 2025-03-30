@@ -13,15 +13,13 @@ import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.ValueSource
 import java.io.IOException
-import kotlin.intArrayOf
 
 internal class RecipeRepositoryImplTest {
     private val recipeService = mockk<RecipeService>()
@@ -100,9 +98,9 @@ internal class RecipeRepositoryImplTest {
     }
 
     @ParameterizedTest
-    @ValueSource(ints = [-1, 0])
+    @ValueSource(longs = [-1L, 0L])
     fun `getRecipeDetail handling invalid Id`(
-        id: Int
+        id: Long,
     ) = runTest {
         assertThrows<IllegalArgumentException> {
             suit.getRecipeDetail(id)

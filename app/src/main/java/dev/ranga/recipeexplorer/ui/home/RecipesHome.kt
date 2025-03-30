@@ -23,7 +23,7 @@ import dev.ranga.recipeexplorer.ui.common.TopAppBar
 
 @Composable
 fun RecipesHome(
-    onRecipeClick: (recipeId: Int) -> Unit,
+    onRecipeClick: (recipeId: Long) -> Unit,
     viewModel: RecipeListViewModel = hiltViewModel(),
 ) {
     val snackBarHostState = remember { SnackbarHostState() }

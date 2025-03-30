@@ -5,18 +5,18 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class RecipeMoreInfoDto(
-    val id: Int,
+    val id: Long,
     val name: String,
     val description: String,
     val instructions: List<InstructionDto>,
     @SerialName("thumbnail_url") val thumbnailUrl: String,
-    @SerialName("total_time_minutes") val totalTimeMinutes: Int = 0,
+    @SerialName("total_time_minutes") val totalTimeMinutes: Long = 0,
     @SerialName("user_ratings") val userRatings: UserRatingsDto,
 )
 
 @Serializable
 data class InstructionDto(
-    val id: Int,
+    val id: Long,
     @SerialName("position") val stepNumber: Int,
     @SerialName("display_text") val displayText: String,
 )

@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.Flow
 interface RecipeRepository {
     //Network
     suspend fun getAllRecipes(from: Int, size: Int): List<Recipe>
-    suspend fun getRecipeDetail(recipeId: Int): RecipeDetail
+    suspend fun getRecipeDetail(recipeId: Long): RecipeDetail
 
     //Db
     fun getFavouriteRecipes(): Flow<List<Recipe>>

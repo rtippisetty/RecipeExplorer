@@ -13,10 +13,10 @@ import kotlinx.serialization.Serializable
 object RecipesHomeScreen
 
 @Serializable
-data class RecipeDetailsScreen(val recipeId: Int)
+data class RecipeDetailsScreen(val recipeId: Long)
 
 fun NavGraphBuilder.recipesHomeScreen(
-    onRecipeClick: (recipeId: Int) -> Unit
+    onRecipeClick: (recipeId: Long) -> Unit
 ) {
     composable<RecipesHomeScreen> {
         RecipesHome(onRecipeClick = onRecipeClick)
