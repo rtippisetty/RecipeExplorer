@@ -11,6 +11,7 @@ import dev.ranga.recipeexplorer.api.GetRecipeDetailsUseCase
 import dev.ranga.recipeexplorer.api.RemoveFromFavouriteRecipesUseCase
 import dev.ranga.recipeexplorer.api.model.RecipeDetail
 import dev.ranga.recipeexplorer.api.model.toRecipe
+import dev.ranga.recipeexplorer.ui.navigation.RecipeDetailsScreen
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -35,7 +36,7 @@ class RecipeDetailViewModel @Inject constructor(
     private val removeFromFavouriteRecipesUseCase: RemoveFromFavouriteRecipesUseCase,
     private val logger: Logger,
 ) : ViewModel() {
-    private val recipeId: Long = savedStateHandle["recipeId"] ?: 0
+    private val recipeId: Long = savedStateHandle[RecipeDetailsScreen::recipeId.name] ?: 0L
 
     private val favouriteToggleEvents = MutableSharedFlow<Unit>()
 

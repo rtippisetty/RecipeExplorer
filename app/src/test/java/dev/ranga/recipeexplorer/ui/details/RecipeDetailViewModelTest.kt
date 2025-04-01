@@ -62,8 +62,8 @@ internal class RecipeDetailViewModelTest {
         )
     }
 
-    private fun mockRecipeId(recipeId: Int) {
-        every { savedStateHandle.get<Int>("recipeId") } returns recipeId
+    private fun mockRecipeId(recipeId: Long) {
+        every { savedStateHandle.get<Long>("recipeId") } returns recipeId
     }
 
     @Test
